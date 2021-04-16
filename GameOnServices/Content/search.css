@@ -1,0 +1,20 @@
+﻿
+.search-text-box select,
+.search-text-box input,
+.search-text-box button{
+    font-size:16px;
+    height:40px;    
+  
+}
+
+.search-text-box {
+    width: 100%;
+    padding-left: 2px;
+    padding-right: 4px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+.margin-bottom-10 {
+    padding-bottom: 5px;
+}

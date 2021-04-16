@@ -1,0 +1,9 @@
+# skip .vs folder
+
+.vs/
+TestResults
+packages
+GameOnServices/bin
+GameOnServices/obj
+UnitTests/bin
+UnitTests/obj

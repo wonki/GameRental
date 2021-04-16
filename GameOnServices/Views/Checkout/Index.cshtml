@@ -1,0 +1,49 @@
+﻿<div class="row" id="checkoutWorkspace" ng-controller="CheckoutController as controller">
+     
+    <div class="row checkout-container">
+
+        <div class="checkout-list col-sm-6">
+            <div ng-repeat="game in controller.getCheckoutGamesList()">
+                <div class="row margin-bottom-5">
+                    <div class="col-sm-2">
+                        <img alt="{{game.name}}" ng-src="{{game.imageUrl}}"
+                             style="height:75px;width:75px" />
+                    </div>
+                    <div class="col-sm-10">
+                        <div><span class="boldFont">Name: </span> {{game.name}}</div>
+                        <div><span class="boldFont">Rent: </span> {{game.rent | currency}}</div>
+                        <div>
+                            <button type="button" class="btn-danger" ng-click="controller.removeMovie(game.id)">Remove</button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm-4">
+            <div class="largeFont maroon margin-bottom-5">Total Amount: {{controller.totalRent|currency}}</div>
+            <div  class="margin-bottom-10">
+                <button type="submit" class="btn-success" ng-disabled="controller.getCheckoutGamesList().length==0" ng-click="controller.makePayment()">Make Payment</button>
+
+
+            </div>
+            <div>
+                <button type="submit" class="btn-info" ng-click="controller.redirect()">Back to Search</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/Components/gameRentalAppModule.js"></script>
+<script src="~/Scripts/Components/Checkout/checkoutController.js"></script>

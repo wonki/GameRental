@@ -1,0 +1,50 @@
+﻿<div class="row" id="searchWorkspace" ng-controller="SearchController as controller">
+    
+    <div class="row search-text-box margin-top">
+        <div class="col-sm-8">
+            <input type="search" name="gameName" class="" placeholder="search games..." autofocus
+                   ng-model="controller.searchText" ng-minlength="4" title="4 characters minimum" />
+
+            <button type="button" class="btn-info glyphicon glyphicon-search" ng-click="controller.searchByName()"></button>
+        </div>
+        <div class="col-sm-2 pull-right">
+            <span class="largeFont">Cart ({{controller.selectedGameIds.length}})</span>
+            <button type="submit" class="btn-warning" ng-disabled="controller.selectedGameIds.length==0" ng-click="controller.checkout()">Checkout</button>
+        </div>
+    </div>
+    <div class="search-results">
+        <div ng-repeat="game in controller.getGamesList()">
+            <div class="row margin-bottom-10">
+                <div class="col-sm-2">
+                    <img alt="{{game.name}}" ng-src="{{game.imageUrl}}"
+                         style="height:160px;width:160px" />
+                </div>
+                <div class="col-sm-9">
+                    <div><span class="boldFont">Name:</span> {{game.name}}</div>
+                    <div class="margin-bottom-10"><span class="boldFont">Summary:</span> {{game.summary}}</div>
+                    <div class="pull-right ">
+                        <button type="button" class="btn-success" ng-click="controller.addToCart(game.id)">Add to cart</button>
+                    </div>                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div>
+        <div class="row" ng-show="controller.showPagination">
+            <a href="#" class="col-sm-2 col-sm-offset-2 btn-link" ng-click="controller.previousPage()">Previous </a>
+            <div class="col-sm-2">Page {{controller.currentPage}} of {{controller.totalPages}}</div>
+            <a href="#" class="col-sm-2 btn-link" ng-click="controller.nextPage()">Next</a>
+            <div class="col-sm-2">Total: {{controller.totalItems}}</div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/Components/gameRentalAppModule.js"></script>
+<script src="~/Scripts/Components/Search/searchController.js"></script>
